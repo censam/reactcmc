@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Items from '../api/Items';
 import Item from './Item';
-
+import { LoginButtons } from 'meteor/okgrow:accounts-ui-react';
 import { createContainer } from 'meteor/react-meteor-data';
 let hello="Meteor";
 
@@ -31,7 +31,7 @@ class App extends Component{
 		return (
 			<div>
 			<header>
-				<h1>Voting App</h1>
+				<h1>Voting App </h1> <LoginButtons />
 			</header>
 			<main>
 				<form className="new-items" onSubmit={this.addItems.bind(this)}>
