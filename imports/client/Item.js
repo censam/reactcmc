@@ -5,23 +5,13 @@ export default class Item extends Component{
 
 
 	voteOne(){	
-if(Meteor.userId()){
-		Items.update(this.props.item._id,{
-			$inc:{
-				 'itemOne.value':1
-			}})	
-}
+		Meteor.call('voteOnItem',this.props.item, 'itemOne');
 	}
 
 	
 	voteTwo(){	
-if(Meteor.userId()){
-		Items.update(this.props.item._id,{
-			$inc:{
-				 'itemTwo.value':1
-			}})	
-	}
-}
+		Meteor.call('voteOnItem',this.props.item, 'itemTwo');
+          }
 
 
 
@@ -32,7 +22,7 @@ if(Meteor.userId()){
 		 <div className="item">
 		 	<div className="vote-one" onClick={this.voteOne.bind(this)}>
 		 		<span>{this.props.item.itemOne.value}</span>
-		 		<h3>{this.props.item.itemOne.text} terty</h3>
+		 		<h3>{this.props.item.itemOne.text}</h3>
 		 	</div>
 		 	<span>vs</span>
 		 	<div className="vote-two" onClick={this.voteTwo.bind(this)}>
